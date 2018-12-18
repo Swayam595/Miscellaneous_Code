@@ -3,7 +3,7 @@ bool split(vector<int> array, int target){
     int i = 0;      //  Slow counter
     int j = 0;      //  Fast counter
     
-    while(i != array.size() - 1){         //  Iterate till the end of the array
+    while(i <= array.size() - 1){         //  Iterate till the end of the array
         sum = sum + array[j];             //  Variable storing the sum of the subarray
         j++;
         

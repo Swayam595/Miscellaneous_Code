@@ -1,20 +1,18 @@
-bool split(vector<int> array, int target){
-    int sum = 0;
-    int i = 0;      //  Slow counter
-    int j = 0;      //  Fast counter
-    
-    while(i <= array.size() - 1){         //  Iterate till the end of the array
-        sum = sum + array[j];             //  Variable storing the sum of the subarray
-        j++;
+int subarraySum(vector<int>& nums, int k) {
+        int count = 0;
+        unordered_map<int, int> numCountMap;
+        numCountMap[0] = 1;
+        int runningSum = 0;
+        for(int i = 0; i < nums.size(); i++) {
+            runningSum += nums[i];
+            int numToFind = runningSum-k;
+            
+            if (numCountMap.count(numToFind) > 0) {
+                count += numCountMap[numToFind];
+            }
+            
+            numCountMap[runningSum]++;
+        }
         
-        if(target == sum){                //  Subarray sum is equal to the length then return true
-            return true;
-        }
-        else if(sum > target){            //  If sum is greater than target then increment i 
-            i++;
-            sum = 0;                      //  Make sum as zero 
-            j = i;                        //  Make j value as i
-        }
+        return count;
     }
-    return false;
-}

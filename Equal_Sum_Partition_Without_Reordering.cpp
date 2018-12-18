@@ -2,7 +2,7 @@ int split(vector<int> array){
     int templ = array[0], tempr = 0;
     int i = 1, j = 0;
     
-    while(j != array.size()-1){
+    while(j <= array.size()-1){
         tempr = array[i] + tempr;     //  Stores the right subarray sum
         i++;
         

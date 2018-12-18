@@ -3,9 +3,11 @@ int subarraySum(vector<int>& nums, int k) {
         unordered_map<int, int> numCountMap;
         numCountMap[0] = 1;
         int runningSum = 0;
+        int numToFind;
+        
         for(int i = 0; i < nums.size(); i++) {
             runningSum += nums[i];
-            int numToFind = runningSum-k;
+            numToFind = runningSum-k;
             
             if (numCountMap.count(numToFind) > 0) {
                 count += numCountMap[numToFind];
